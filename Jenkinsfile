@@ -3,6 +3,11 @@ pipeline {
     label "docker-agent"
   }
   stages {
+    stage('Cloning Git') {
+      steps {
+        git([url: 'https://github.com/swathi994/webapp.git', branch: 'master', credentialsId: 'swathi994'])
+       }
+    }
     stage ('Execute tests') {
       steps{
        sh ' sudo systemctl status docker'
