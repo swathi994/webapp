@@ -66,7 +66,7 @@ Below are the steps if a docker image needs to be deployed on Kuberntes cluster:
            
  Sample Jenkins file for a docker image deployment on Kubernetes cluster using jenkins pipeline..
 
- pipeline {
+              pipeline {
 
   environment {
     dockerimagename = ""
