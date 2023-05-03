@@ -3,6 +3,10 @@ pipeline {
     label "docker-agent"
   }
   stages {
+    stage ('Execute tests') {
+      steps{
+       sh ' sudo systemctl status docker'
+      } 
     stage ('Run Docker Compose') {
       steps{
         sh 'sudo yum install docker -y'
