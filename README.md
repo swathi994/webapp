@@ -51,17 +51,17 @@ How the application works when jenkins pipeline is executed:
            
 Below are the steps if a docker image needs to be deployed on Kuberntes cluster:
 
-1. Push Docker Image to Docker Hub using Jenkins.
+           1. Push Docker Image to Docker Hub using Jenkins.
 
-2. Generate SSH Key on Kubernetes Client.
+           2. Generate SSH Key on Kubernetes Client.
 
-3. Configure SSH Key in Jenkins.
+           3. Configure SSH Key in Jenkins.
 
-4. Create a Deployment file.
+           4. Create a Deployment file.
 
-5. Deploy Docker Image to Kubernetes Cluster Using Jenkinsfile
+           5. Deploy Docker Image to Kubernetes Cluster Using Jenkinsfile
 
-6. Test the Deployment Pipeline        
+           6. Test the Deployment Pipeline        
            
            
           
