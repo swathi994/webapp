@@ -1,0 +1,25 @@
+version: '3'
+services:
+ www:
+   build: .
+   volumes:
+     - "./:/var/www/html"
+   ports:
+     - 80:80
+ db:
+   image: mysql:latest
+   restart: always
+   command: --default-authentication-plugin=mysql_native_password
+   environment: 
+     - MYSQL_ROOT_PASSWORD=example
+   # - MYSQL_HOST=35.165.117.71 
+     - MYSQL_DATABASE=assignment
+   volumes:
+     - "./db:/docker-entrypoint-initdb.d" 
+ phpmyadmin:
+   image: phpmyadmin/phpmyadmin
+   ports:
+     - 8001:80
+   environment:
+     - PMA_HOST=db
+     - PMA_PORT=3306 

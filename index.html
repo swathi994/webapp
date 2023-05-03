@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>User Form</title>
+<style>
+.container {  
+    padding: 50px;  
+  background-color: lightblue;  
+} 
+div {  
+            padding: 10px 0;  
+         }
+</style>
+</head>
+<body>
+ <form method="post" action="connect.php">
+  <div class="container">  
+  <center>  <h1>User Registration Form</h1> </center>  
+  <table>
+   <tr>
+    <td>Username :</td>
+    <td><input type="text" name="username" placeholder= "Username" required></td>
+   </tr>
+   <tr>
+    <td>Date of birth :</td>
+    <td><input type="date" name="dob" required></td>
+   </tr>
+   <tr>
+    <td>Display name :</td>
+    <td>
+	    <input type="text" name="displayname" placeholder= "Displayname" required>
+    </td>
+   </tr>
+   <tr>
+	   <td><input type="submit" value="Submit"></td> 
+   </tr>
+  </table>
+ </form>
+</body>
+</html>
