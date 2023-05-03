@@ -38,7 +38,18 @@ Instructions to run and maintain the application:
            12. Run http://ecipaddress so that webpage gets opened. Fill username,dob and displayname & click on Submit. It will then redirects to http://ec2ipaddress/connect.php and displays as "new record inserted successfully" if it is successful insertion.
            
            
-Internal process explanation when jenkins pipeline is executed:
+How the application works when jenkins pipeline is executed:
+
+           1. Jenkins pipeline executes the jenkins file that contains cloning the git repo, execute tests and run docker-compose steps.
+           2. When docker-compose is run, it builds 3 containers for php apache, phpyadmin and mysqldb.
+           3. docker-compose.yml contains information of all the 3 containers mentioned above and it also calls the dockerfile inside it.
+           4. mysqldb container consists of information about dbrootuserpassword, dbname and other needed parameters. .db folder that contains sql script for table creation is mounted on mysqldb container init volume.
+           5. phpmyadmin container consists of information about pma host and port.
+           6. dockerfile conists of php:apache image and other needed sql extensions.
+           7. index.html and connect.php files are mounted on /var/www/html volume in php:apache container.
+           8. index.html has all the html code which sends its post response to connect.php. Connect.php contains db information mentioned in docker-compose.yml & it creates db connection by inserting the records to respective user table successfully.
+          
+           
 
  
 
