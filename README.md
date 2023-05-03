@@ -61,7 +61,60 @@ Below are the steps if a docker image needs to be deployed on Kuberntes cluster:
 
            5. Deploy Docker Image to Kubernetes Cluster Using Jenkinsfile
 
-           6. Test the Deployment Pipeline        
+           6. Test the Deployment Pipeline       
+           
+           
+ Sample Jenkins file for a docker image deployment on Kubernetes cluster using jenkins pipeline..
+
+pipeline {
+
+  environment {
+    dockerimagename = ""
+    dockerImage = ""
+  }
+
+  agent any
+
+  stages {
+
+    stage('Checkout Source') {
+      steps {
+        git 'https://github.com/swathi994/webapp.git
+      }
+    }
+
+    stage('Build image') {
+      steps{
+        script {
+          dockerImage = docker.build dockerimagename
+        }
+      }
+    }
+
+    stage('Pushing Image') {
+      environment {
+               registryCredential = 'dockerhub-credentials'
+           }
+      steps{
+        script {
+          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+            dockerImage.push("latest")
+          }
+        }
+      }
+    }
+
+    stage('Deploying container to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+        }
+      }
+    }
+
+  }
+
+}
            
            
           
