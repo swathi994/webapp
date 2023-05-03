@@ -112,9 +112,9 @@ Below are the steps if a docker image needs to be deployed on Kuberntes cluster:
       }
     }
 
-  }
+            }
 
-}
+          }
            
            
           
