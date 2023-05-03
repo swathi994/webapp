@@ -48,6 +48,22 @@ How the application works when jenkins pipeline is executed:
            6. dockerfile conists of php:apache image and other needed sql extensions.
            7. index.html and connect.php files are mounted on /var/www/html volume in php:apache container.
            8. index.html has all the html code which sends its post response to connect.php. Connect.php contains db information mentioned in docker-compose.yml & it creates db connection by inserting the records to respective user table successfully.
+           
+Below are the steps if a docker image needs to be deployed on Kuberntes cluster:
+
+1. Push Docker Image to Docker Hub using Jenkins.
+
+2. Generate SSH Key on Kubernetes Client.
+
+3. Configure SSH Key in Jenkins.
+
+4. Create a Deployment file.
+
+5. Deploy Docker Image to Kubernetes Cluster Using Jenkinsfile
+
+6. Test the Deployment Pipeline        
+           
+           
           
            
 
