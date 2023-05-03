@@ -68,14 +68,14 @@ Below are the steps if a docker image needs to be deployed on Kuberntes cluster:
 
               pipeline {
 
-  environment {
-    dockerimagename = ""
-    dockerImage = ""
-  }
+                environment {
+                   dockerimagename = ""
+                   dockerImage = ""
+               }
 
-  agent any
+                 agent any
 
-  stages {
+                    stages {
 
     stage('Checkout Source') {
       steps {
