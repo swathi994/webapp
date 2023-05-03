@@ -6,7 +6,7 @@ The whole CI/CD process is automated using jenkins pipeline.
 
 Instructions to run and maintain the application:
 
-          1. Create Amazon Linux EC2 instance using terraform. (git clone the below code to launch an instance using terraform insetad of manual process using console)
+          1. Create Amazon Linux EC2 instance using terraform. (Launch an ec2 instance using terraform instead of creating it manually in aws concole. Install terraform on your local machine and git clone using "https://github.com/swathi994/terraform.git". Then execute terraform init, terraform plan and terraform apply commands)
           2. Login to EC2 instance using .pem file given at the time of creation.
                       ssh -i ".pem file name" ec2-user@ipaddress
           3. Install Java and Jenkins using the below commands.
