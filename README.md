@@ -1,8 +1,5 @@
 This is a web application that enables users to manage a single entity called User, which is stored in a database. The web application has a user interface in the form of a web page.
-The webpage has three attributes:
-• Username
-• Date of birth
-• Display name
+The webpage has three attributes: Username, Date of birth and Display name.
 The source code for the project and other necessary files are mantained in Github.
 This web application is dockerized that includes the application and its dependencies.
 The whole CI/CD process is automated using jenkins pipeline.
@@ -12,7 +9,7 @@ Instructions to run and maintain the application:
           1. Create Amazon Linux EC2 instance using terraform. (git clone the below code to launch an instance using terraform insetad of manual process using console)
           2. Login to EC2 instance using .pem file given at the time of creation.
                       ssh -i ".pem file name" ec2-user@ipaddress
-          3. Install Java and Jenkins with ec2-user using the below commands.
+          3. Install Java and Jenkins using the below commands.
           
                    sudo yum update –y  #software update
                    sudo wget -O /etc/yum.repos.d/jenkins.repo \ https://pkg.jenkins.io/redhat-stable/jenkins.repo #Add the Jenkins repo
@@ -23,6 +20,25 @@ Instructions to run and maintain the application:
                    sudo yum install jenkins -y #Install Jenkins
                    sudo systemctl enable jenkins #Enable the Jenkins service to start at boot
                    sudo systemctl start jenkins #Start Jenkins as service
+                   sudo systemctl status jenkins #check the status of jenkins service
+           4. Install Git using the below commands.
+           
+                   sudo yum install git #Install git
+                   git version # to check git version
+                   
+           5. Access jenkins on ec2ipaddress:8080 on the browser (8080 port should be allowed as inbound rule on ec2 SG group)
+           6. Configure jenkins by installing the needed plugins and creating username/continue as admin.
+           7. Create a slave agent in jenkins with the name "docker-agent" and it should be Launched using the controller option.
+                        Dashboard-> Manage Jenkins -> Manage nodes > create new node (provide the needed details)
+           8. Bring the slave agent online by executing some commands on agent host terminal.
+           9. Create a pipeline/multibranch pipeline project in jenkins by giving the below git repo and it's jenkinsfile in script path.
+           10. Click on Build now in jenkins so that the pipeline gets executed. 
+           11. Run ec2ipaddress:8083 so that myphpadmin page gets opened. Login it with the root user and password mentioned in docker-compose.yml. Check if the database named 'assigment' and table 'user' exists in mysql database.
+           12. Run http://ecipaddress so that webpage gets opened. Fill username,dob and displayname & click on Submit. It will then redirects to http://ec2ipaddress/connect.php and displays as "new record inserted successfully" if it is successful insertion.
+
+                             
+           
+
 
             
          
