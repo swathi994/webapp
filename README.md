@@ -31,10 +31,16 @@ Instructions to run and maintain the application:
            7. Create a slave agent in jenkins with the name "docker-agent" and it should be Launched using the controller option.
                         Dashboard-> Manage Jenkins -> Manage nodes > create new node (provide the needed details)
            8. Bring the slave agent online by executing some commands on agent host terminal.
-           9. Create a pipeline/multibranch pipeline project in jenkins by giving the below git repo and it's jenkinsfile in script path.
+           9. Create a pipeline/multibranch pipeline project in jenkins by giving the below git repo and it's jenkinsfile path.
+                         https://github.com/swathi994/webapp.git
            10. Click on Build now in jenkins so that the pipeline gets executed. 
-           11. Run ec2ipaddress:8083 so that myphpadmin page gets opened. Login it with the root user and password mentioned in docker-compose.yml. Check if the database named 'assigment' and table 'user' exists in mysql database.
+           11. Run ec2ipaddress:8083 so that myphpadmin page gets opened. Login it with the root user and password mentioned in docker-compose.yml. Check if the database named 'assignment' and table 'user' exists in mysql database.
            12. Run http://ecipaddress so that webpage gets opened. Fill username,dob and displayname & click on Submit. It will then redirects to http://ec2ipaddress/connect.php and displays as "new record inserted successfully" if it is successful insertion.
+           
+           
+Internal process explanation when jenkins pipeline is executed:
+
+ 
 
                              
            
