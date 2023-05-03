@@ -12,6 +12,7 @@ pipeline {
       steps{
        sh ' sudo systemctl status docker'
       } 
+    }
     stage ('Run Docker Compose') {
       steps{
         sh 'sudo yum install docker -y'
