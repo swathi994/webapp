@@ -5,7 +5,8 @@ This is a web application that enables users to manage a single entity called Us
 The webpage has three attributes: Username, Date of birth and Display name.
 The source code for the project and other necessary files are mantained in Github.
 This web application is dockerized that includes the application and its dependencies.
-The whole CI/CD process is automated using jenkins pipeline.
+The whole CI/CD process is automated using jenkins pipeline that will first run the tests, then build a Docker image
+of the application, and finally deploy the image to a Kubernetes cluster.
 
 Instructions to run and maintain application
 =================================================
