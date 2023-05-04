@@ -6,9 +6,9 @@ The source code for the project and other necessary files are mantained in Githu
 This web application is dockerized that includes the application and its dependencies.
 The whole CI/CD process is automated using jenkins pipeline.
 
-Instructions to run and maintain the application:
+**Instructions to run and maintain the application:**
 
-          1. Create Amazon Linux EC2 instance using terraform. (Launch an ec2 instance using terraform instead of creating it manually in aws concole. Install terraform on your local machine and git clone using "https://github.com/swathi994/terraform.git". Execute aws configure and provide your aws credentials. Then execute terraform init, terraform plan and terraform apply commands)
+          1. Create Amazon Linux EC2 instance using terraform. (Launch an ec2 instance using terraform instead of creating it manually in aws concole. Install terraform on your local machine and git clone using "**https://github.com/swathi994/terraform.git**". Execute aws configure and provide your aws credentials. Then execute terraform init, terraform plan and terraform apply commands)
           2. Login to EC2 instance using .pem file given at the time of creation.
                       ssh -i ".pem file name" ec2-user@ipaddress
           3. Install Java and Jenkins using the below commands.
@@ -35,14 +35,18 @@ Instructions to run and maintain the application:
            8. Bring the slave agent online by executing some commands on agent host terminal.
            9. Create a pipeline/multibranch pipeline project in jenkins by giving the below git repo and it's jenkinsfile path.
                          https://github.com/swathi994/webapp.git
+           10. Install Kubernetes in the different ubuntu instances using the procedure mentioned in the bottom of this readme.md file.
            10. Click on Build now in jenkins so that the pipeline gets executed. 
-           11. Run ec2ipaddress:8083 so that myphpadmin page gets opened. Login it with the root user and password mentioned in docker-compose.yml. Check if the database named 'assignment' and table 'user' exists in mysql database.
-           12. Run http://ecipaddress so that webpage gets opened. Fill username,dob and displayname & click on Submit. It will then redirects to http://ec2ipaddress/connect.php and displays as "new record inserted successfully" if it is successful insertion.
-           
-           
-How the application works when jenkins pipeline is executed:
+           11. Run ec2ipaddress:8083 so that myphpadmin page gets opened. Login it with the root user and password mentioned in docker-compose.yml. Check if the database named 'assignment' and table 'user' exists in mysql database.![Screenshot from 2023-05-04 18-15-27](https://user-images.githubusercontent.com/33414899/236209374-971dfb03-844e-4dad-bdd7-bc1d94aa4b76.png)
 
-           1. Jenkins pipeline executes the jenkins file that contains cloning the git repo, execute tests and run docker-compose steps.
+           
+           
+           12. Run http://ec2ipaddress so that webpage gets opened. Fill username,dob and displayname & click on Submit. It will then redirects to http://ec2ipaddress/connect.php and displays as "new record inserted successfully" if it is successful insertion.
+           
+           
+**How the application works when jenkins pipeline is executed:**
+
+           1. Jenkins pipeline executes the jenkins file that contains cloning the git repo, execute tests, run docker-compose steps, push the docker images to docker hub and deploy the images to Kubernetes cluster.
            2. When docker-compose is run, it builds 3 containers for php apache, phpyadmin and mysqldb.
            3. docker-compose.yml contains information of all the 3 containers mentioned above and it also calls the dockerfile inside it.
            4. mysqldb container consists of information about dbrootuserpassword, dbname and other needed parameters. .db folder that contains sql script for table creation is mounted on mysqldb container init volume.
@@ -50,6 +54,8 @@ How the application works when jenkins pipeline is executed:
            6. dockerfile conists of php:apache image and other needed sql extensions.
            7. index.html and connect.php files are mounted on /var/www/html volume in php:apache container.
            8. index.html has all the html code which sends its post response to connect.php. Connect.php contains db information mentioned in docker-compose.yml & it creates db connection by inserting the records to respective user table successfully.
+           9. Later the docker images are pushed to the docker hub.
+           10. Then the docker images are deployed to Kubernetes cluster.
            
 Below are the steps if a docker image needs to be deployed on Kuberntes cluster:
 
