@@ -42,25 +42,30 @@ Instructions to run and maintain application
            10. Click on Build now in jenkins so that the pipeline gets executed. 
            11. Run http://ec2ipaddress so that webpage gets opened.
            
-                Screenshot of webpage created: ![Screenshot from 2023-05-04 18-15-27](https://user-images.githubusercontent.com/33414899/236210470-82df8ec0-3772-48da-8ad8-f52638f67a25.png)
+                Screenshot of webpage created: 
+  ![Screenshot from 2023-05-04 18-15-27](https://user-images.githubusercontent.com/33414899/236236018-0017a920-13ea-4594-9872-2b0782bfe296.png)
                    
            12. Fill username,dob and displayname & click on Submit. It will then redirects to http://ec2ipaddress/connect.php and displays as "new record inserted successfully" if it is successful insertion.
            
-                Screenshot of successful details submission: ![Screenshot from 2023-05-04 18-26-19](https://user-images.githubusercontent.com/33414899/236211117-4068478e-10f3-4609-92c6-4236d83d204b.png)
+                Screenshot of successful details submission: 
+   
+  ![Screenshot from 2023-05-04 18-26-19](https://user-images.githubusercontent.com/33414899/236236557-b4210d4e-4ba8-4190-9832-3b18396585e4.png)
 
                  
            13. Run ec2ipaddress:8083 so that myphpadmin page gets opened. Login it with the root user and password mentioned in docker-compose.yml. Check if the database named 'assignment' and table 'user' exists in mysql database.
                  
-                 Screenshots of phpmyadmin page and records insertion from User interface: ![Screenshot from 2023-05-04 18-28-40](https://user-images.githubusercontent.com/33414899/236211741-15c2b2b9-f7d2-4b46-915a-e186aca8c145.png)  
-                 ![Screenshot from 2023-05-04 18-29-42](https://user-images.githubusercontent.com/33414899/236211977-431e667f-513e-4a3f-b04c-b7544434af5f.png)
-            
+                 Screenshots of phpmyadmin page and records insertion from User interface: 
+   ![Screenshot from 2023-05-04 18-28-40](https://user-images.githubusercontent.com/33414899/236236962-b3a1ad9d-c7bf-4ac9-ad77-df1ace745ca2.png)
+   ![Screenshot from 2023-05-04 18-29-42](https://user-images.githubusercontent.com/33414899/236237264-4a874ced-69d7-431d-81b0-8adaa54b8eb2.png)
+                
 How the application works when pipeline executes
 =================================================           
 
            1. Jenkins pipeline executes the jenkins file that contains cloning the git repo, execute tests, run docker-compose steps, push the docker images to docker hub and deploy the images to Kubernetes cluster.
            2. When docker-compose is run, it builds 3 containers for php apache, phpyadmin and mysqldb.
            
-                Screenshot of docker containers: ![Screenshot from 2023-05-04 18-34-40](https://user-images.githubusercontent.com/33414899/236213118-5ac16b73-81f3-4806-b0e0-e5cccc738553.png)
+                Screenshot of docker containers: 
+   ![Screenshot from 2023-05-04 18-34-40](https://user-images.githubusercontent.com/33414899/236237638-cc0f184d-38c8-4edf-88bd-1b4dea3bc99f.png)
 
            3. docker-compose.yml contains information of all the 3 containers mentioned above and it also calls the dockerfile inside it.
            4. mysqldb container consists of information about dbrootuserpassword, dbname and other needed parameters. .db folder that contains sql script for table creation is mounted on mysqldb container init volume.
@@ -71,9 +76,11 @@ How the application works when pipeline executes
            9. Later the docker images are pushed to the docker hub.
            10.Then the docker images are deployed to Kubernetes cluster.
            
-                  Screenshot of kubernetes nodes: ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236215774-5c8654ec-2040-41e3-bb83-4a76289150e9.png)
-                  
-                  Screenshot of kubernetes pods: ![Screenshot from 2023-05-04 18-47-09](https://user-images.githubusercontent.com/33414899/236216064-683e3901-c529-41fb-939b-93be44669142.png)
+                  Screenshot of kubernetes nodes: 
+   ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236238155-8d70de82-ee9f-4f8d-9f13-bce80e795506.png)
+
+                  Screenshot of kubernetes pods: 
+   ![Screenshot from 2023-05-04 18-47-09](https://user-images.githubusercontent.com/33414899/236216064-683e3901-c529-41fb-939b-93be44669142.png)
           
 Below are the steps to install Kuberntes cluster using kuebadm
 =================================================
@@ -155,7 +162,9 @@ Building a Kubernetes 1.22 Cluster with kubeadm
                      3. In the Control Plane Node, view cluster status (Note: You may have to wait a few moments to allow all nodes to become ready):
                             kubectl get nodes
 
-                          Screenshot of kubernetes nodes: ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236215774-5c8654ec-2040-41e3-bb83-4a76289150e9.png)
+                          Screenshot of kubernetes nodes:
+   ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236238155-8d70de82-ee9f-4f8d-9f13-bce80e795506.png)
                   
-                          Screenshot of kubernetes pods: ![Screenshot from 2023-05-04 18-47-09](https://user-images.githubusercontent.com/33414899/236216064-683e3901-c529-41fb-939b-93be44669142.png)
+                          Screenshot of kubernetes pods: 
+   ![Screenshot from 2023-05-04 18-47-09](https://user-images.githubusercontent.com/33414899/236216064-683e3901-c529-41fb-939b-93be44669142.png)
 
