@@ -56,6 +56,7 @@ Instructions to run and maintain application
                  
                  Screenshots of phpmyadmin page and records insertion from User interface: 
    ![Screenshot from 2023-05-04 18-28-40](https://user-images.githubusercontent.com/33414899/236236962-b3a1ad9d-c7bf-4ac9-ad77-df1ace745ca2.png)
+   ![Screenshot from 2023-05-04 18-29-42](https://user-images.githubusercontent.com/33414899/236237264-4a874ced-69d7-431d-81b0-8adaa54b8eb2.png)
                 
 How the application works when pipeline executes
 =================================================           
