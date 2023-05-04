@@ -76,8 +76,9 @@ How the application works when pipeline executes
            9. Later the docker images are pushed to the docker hub.
            10.Then the docker images are deployed to Kubernetes cluster.
            
-                  Screenshot of kubernetes nodes: ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236215774-5c8654ec-2040-41e3-bb83-4a76289150e9.png)
-                  
+                  Screenshot of kubernetes nodes: 
+   ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236238155-8d70de82-ee9f-4f8d-9f13-bce80e795506.png)
+
                   Screenshot of kubernetes pods: ![Screenshot from 2023-05-04 18-47-09](https://user-images.githubusercontent.com/33414899/236216064-683e3901-c529-41fb-939b-93be44669142.png)
           
 Below are the steps to install Kuberntes cluster using kuebadm
@@ -160,7 +161,8 @@ Building a Kubernetes 1.22 Cluster with kubeadm
                      3. In the Control Plane Node, view cluster status (Note: You may have to wait a few moments to allow all nodes to become ready):
                             kubectl get nodes
 
-                          Screenshot of kubernetes nodes: ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236215774-5c8654ec-2040-41e3-bb83-4a76289150e9.png)
+                          Screenshot of kubernetes nodes:
+     ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236238155-8d70de82-ee9f-4f8d-9f13-bce80e795506.png)
                   
                           Screenshot of kubernetes pods: ![Screenshot from 2023-05-04 18-47-09](https://user-images.githubusercontent.com/33414899/236216064-683e3901-c529-41fb-939b-93be44669142.png)
 
