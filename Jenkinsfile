@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git([url: 'https://github.com/swathi994/webapp.git', branch: 'master', credentialsId: 'swathi994'])
+        git([url: 'https://github.com/swathi994/webapp.git', branch: 'master', credentialsId: 'jenkins-user'])
        }
     }
     stage ('Execute tests') {
