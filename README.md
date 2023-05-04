@@ -41,11 +41,11 @@ Instructions to run and maintain application
            10. Click on Build now in jenkins so that the pipeline gets executed. 
            11. Run http://ec2ipaddress so that webpage gets opened.
            
-                **Screenshot of webpage created:** ![Screenshot from 2023-05-04 18-15-27](https://user-images.githubusercontent.com/33414899/236210470-82df8ec0-3772-48da-8ad8-f52638f67a25.png)
+                Screenshot of webpage created: ![Screenshot from 2023-05-04 18-15-27](https://user-images.githubusercontent.com/33414899/236210470-82df8ec0-3772-48da-8ad8-f52638f67a25.png)
                    
            12. Fill username,dob and displayname & click on Submit. It will then redirects to http://ec2ipaddress/connect.php and displays as "new record inserted successfully" if it is successful insertion.
            
-                **Screenshot of successful details submission:** ![Screenshot from 2023-05-04 18-26-19](https://user-images.githubusercontent.com/33414899/236211117-4068478e-10f3-4609-92c6-4236d83d204b.png)
+                Screenshot of successful details submission: ![Screenshot from 2023-05-04 18-26-19](https://user-images.githubusercontent.com/33414899/236211117-4068478e-10f3-4609-92c6-4236d83d204b.png)
 
                  
            13. Run ec2ipaddress:8083 so that myphpadmin page gets opened. Login it with the root user and password mentioned in docker-compose.yml. Check if the database named 'assignment' and table 'user' exists in mysql database.
@@ -70,16 +70,17 @@ How the application works when pipeline executes
            9.  Later the docker images are pushed to the docker hub.
            10. Then the docker images are deployed to Kubernetes cluster.
            
-                  **Screenshot of kubernetes nodes:** ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236215774-5c8654ec-2040-41e3-bb83-4a76289150e9.png)
+                  Screenshot of kubernetes nodes: ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236215774-5c8654ec-2040-41e3-bb83-4a76289150e9.png)
                   
-                    Screenshot of kubernetes pods: ![Screenshot from 2023-05-04 18-47-09](https://user-images.githubusercontent.com/33414899/236216064-683e3901-c529-41fb-939b-93be44669142.png)
+                  Screenshot of kubernetes pods: ![Screenshot from 2023-05-04 18-47-09](https://user-images.githubusercontent.com/33414899/236216064-683e3901-c529-41fb-939b-93be44669142.png)
           
 Below are the steps to install Kuberntes cluster using kuebadm
 =================================================
-================================================
+
 Building a Kubernetes 1.22 Cluster with kubeadm
 =================================================
-                    **A. Install Packages**
+                    A. Install Packages
+                    
                     1. Log into the Control Plane Node (Note: The following steps must be performed on all three nodes.).
                     2. Create configuration file for containerd:
                             cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
@@ -128,7 +129,8 @@ Building a Kubernetes 1.22 Cluster with kubeadm
                                sudo apt-mark hold kubelet kubeadm kubectl
                      19. Log into both Worker Nodes to perform previous steps.
 
-                     **B. Initialize the Cluster**
+                     B. Initialize the Cluster
+                     
                        1. Initialize the Kubernetes cluster on the control plane node using kubeadm (Note: This is only performed on the Control Plane Node):
                                sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --kubernetes-version 1.22.0
                        2. Set kubectl access:
@@ -137,12 +139,14 @@ Building a Kubernetes 1.22 Cluster with kubeadm
                             sudo chown $(id -u):$(id -g) $HOME/.kube/config
                        4. Test access to cluster:
                             kubectl get nodes
-                       **C. Install the Calico Network Add-on**
+                      C. Install the Calico Network Add-on
+                      
                        1. On the Control Plane Node, install Calico Networking:
                             kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
                        2. Check status of the control plane node:
                             kubectl get nodes
-                        **D. Join the Worker Nodes to the Cluster**
+                       D. Join the Worker Nodes to the Cluster
+                       
                        1. In the Control Plane Node, create the token and copy the kubeadm join command (NOTE:The join command can also be found in the output from kubeadm init command):
                             kubeadm token create --print-join-command
                        2. In both Worker Nodes, paste the kubeadm join command to join the cluster. Use sudo to run it as root:
