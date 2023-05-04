@@ -145,13 +145,13 @@ Building a Kubernetes 1.22 Cluster with kubeadm
                             kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
                        2. Check status of the control plane node:
                             kubectl get nodes
-                       D. Join the Worker Nodes to the Cluster
+                      D. Join the Worker Nodes to the Cluster
                        
-                        1. In the Control Plane Node, create the token and copy the kubeadm join command (NOTE:The join command can also be found in the output from kubeadm init command):
+                       1. In the Control Plane Node, create the token and copy the kubeadm join command (NOTE:The join command can also be found in the output from kubeadm init command):
                             kubeadm token create --print-join-command
-                        2. In both Worker Nodes, paste the kubeadm join command to join the cluster. Use sudo to run it as root:
-sudo kubeadm join ...
-                        3. In the Control Plane Node, view cluster status (Note: You may have to wait a few moments to allow all nodes to become ready):
+                       2. In both Worker Nodes, paste the kubeadm join command to join the cluster. Use sudo to run it as root:
+                            sudo kubeadm join ...
+                       3. In the Control Plane Node, view cluster status (Note: You may have to wait a few moments to allow all nodes to become ready):
 kubectl get nodes
 
 
