@@ -67,8 +67,8 @@ How the application works when pipeline executes
            6. dockerfile conists of php:apache image and other needed sql extensions.
            7. index.html and connect.php files are mounted on /var/www/html volume in php:apache container.
            8. index.html has all the html code which sends its post response to connect.php. Connect.php contains db information mentioned in docker-compose.yml & it creates db connection by inserting the records to respective user table successfully.
-           9.  Later the docker images are pushed to the docker hub.
-           10. Then the docker images are deployed to Kubernetes cluster.
+           9. Later the docker images are pushed to the docker hub.
+           10.Then the docker images are deployed to Kubernetes cluster.
            
                   Screenshot of kubernetes nodes: ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236215774-5c8654ec-2040-41e3-bb83-4a76289150e9.png)
                   
@@ -131,27 +131,27 @@ Building a Kubernetes 1.22 Cluster with kubeadm
 
                      B. Initialize the Cluster
                      
-                       1. Initialize the Kubernetes cluster on the control plane node using kubeadm (Note: This is only performed on the Control Plane Node):
+                     1. Initialize the Kubernetes cluster on the control plane node using kubeadm (Note: This is only performed on the Control Plane Node):
                                sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --kubernetes-version 1.22.0
-                       2. Set kubectl access:
+                     2. Set kubectl access:
                                 mkdir -p $HOME/.kube
-                       3. sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+                     3. sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
                             sudo chown $(id -u):$(id -g) $HOME/.kube/config
-                       4. Test access to cluster:
+                     4. Test access to cluster:
                             kubectl get nodes
-                      C. Install the Calico Network Add-on
+                     C. Install the Calico Network Add-on
                       
-                       1. On the Control Plane Node, install Calico Networking:
+                     1. On the Control Plane Node, install Calico Networking:
                             kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
-                       2. Check status of the control plane node:
+                     2. Check status of the control plane node:
                             kubectl get nodes
-                      D. Join the Worker Nodes to the Cluster
+                     D. Join the Worker Nodes to the Cluster
                        
-                       1. In the Control Plane Node, create the token and copy the kubeadm join command (NOTE:The join command can also be found in the output from kubeadm init command):
+                     1. In the Control Plane Node, create the token and copy the kubeadm join command (NOTE:The join command can also be found in the output from kubeadm init command):
                             kubeadm token create --print-join-command
-                       2. In both Worker Nodes, paste the kubeadm join command to join the cluster. Use sudo to run it as root:
+                     2. In both Worker Nodes, paste the kubeadm join command to join the cluster. Use sudo to run it as root:
                             sudo kubeadm join ...
-                       3. In the Control Plane Node, view cluster status (Note: You may have to wait a few moments to allow all nodes to become ready):
+                     3. In the Control Plane Node, view cluster status (Note: You may have to wait a few moments to allow all nodes to become ready):
 kubectl get nodes
 
 
