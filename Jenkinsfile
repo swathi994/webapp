@@ -22,5 +22,25 @@ pipeline {
         sh 'sudo docker-compose up -d'
       }
     }
+    stage('Push image to Hub'){
+            steps{
+                script{
+                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                   sh 'docker login -u swathi267 -p ${dockerhubpwd}'
+
+}
+                   sh 'docker push php:apache'
+                   sh 'docker push mysql:latest'
+                   sh 'docker push phpmyadmin/phpmyadmin'
+                }
+            }
+        }
+     stage('Deploy to k8s'){
+            steps{
+                script{
+                    kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'k8sconfigpwd')
+                }
+            }
+        }
   }
 }
