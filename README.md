@@ -82,7 +82,7 @@ Building a Kubernetes 1.22 Cluster with kubeadm
 =================================================
                     A. Install Packages
                     
-                    1. Log into the Control Plane Node (Note: The following steps must be performed on all three nodes.).
+                    1. Log into the Control Plane Node (Note: The following steps must be performed on two nodes.).
                     2. Create configuration file for containerd:
                             cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
                             overlay
