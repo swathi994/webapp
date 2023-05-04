@@ -152,7 +152,9 @@ Building a Kubernetes 1.22 Cluster with kubeadm
                      2. In both Worker Nodes, paste the kubeadm join command to join the cluster. Use sudo to run it as root:
                             sudo kubeadm join ...
                      3. In the Control Plane Node, view cluster status (Note: You may have to wait a few moments to allow all nodes to become ready):
-kubectl get nodes
+                            kubectl get nodes
 
-
+                          Screenshot of kubernetes nodes: ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236215774-5c8654ec-2040-41e3-bb83-4a76289150e9.png)
+                  
+                          Screenshot of kubernetes pods: ![Screenshot from 2023-05-04 18-47-09](https://user-images.githubusercontent.com/33414899/236216064-683e3901-c529-41fb-939b-93be44669142.png)
 
