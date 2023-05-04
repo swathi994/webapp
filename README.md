@@ -64,7 +64,8 @@ How the application works when pipeline executes
            1. Jenkins pipeline executes the jenkins file that contains cloning the git repo, execute tests, run docker-compose steps, push the docker images to docker hub and deploy the images to Kubernetes cluster.
            2. When docker-compose is run, it builds 3 containers for php apache, phpyadmin and mysqldb.
            
-                Screenshot of docker containers: ![Screenshot from 2023-05-04 18-34-40](https://user-images.githubusercontent.com/33414899/236213118-5ac16b73-81f3-4806-b0e0-e5cccc738553.png)
+                Screenshot of docker containers: 
+   ![Screenshot from 2023-05-04 18-34-40](https://user-images.githubusercontent.com/33414899/236237638-cc0f184d-38c8-4edf-88bd-1b4dea3bc99f.png)
 
            3. docker-compose.yml contains information of all the 3 containers mentioned above and it also calls the dockerfile inside it.
            4. mysqldb container consists of information about dbrootuserpassword, dbname and other needed parameters. .db folder that contains sql script for table creation is mounted on mysqldb container init volume.
