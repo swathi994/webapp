@@ -47,7 +47,9 @@ Instructions to run and maintain application
                    
            12. Fill username,dob and displayname & click on Submit. It will then redirects to http://ec2ipaddress/connect.php and displays as "new record inserted successfully" if it is successful insertion.
            
-                Screenshot of successful details submission: ![Screenshot from 2023-05-04 18-26-19](https://user-images.githubusercontent.com/33414899/236211117-4068478e-10f3-4609-92c6-4236d83d204b.png)
+                Screenshot of successful details submission: 
+   
+  ![Screenshot from 2023-05-04 18-26-19](https://user-images.githubusercontent.com/33414899/236236557-b4210d4e-4ba8-4190-9832-3b18396585e4.png)
 
                  
            13. Run ec2ipaddress:8083 so that myphpadmin page gets opened. Login it with the root user and password mentioned in docker-compose.yml. Check if the database named 'assignment' and table 'user' exists in mysql database.
