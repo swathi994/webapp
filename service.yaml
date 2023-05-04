@@ -1,0 +1,40 @@
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: phpapache-k8ssvc
+spec:
+  selector:
+    app: phpapache-k8s
+  ports:
+    - protocol: "TCP"
+      port: 80 # The port that the service is running on in the cluster
+      targetPort: 80 # The port exposed by the service
+  type: NodePort # type of the service.
+  
+---
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: phpmyadmin-k8ssvc
+spec:
+  selector:
+    app: phpmyadmin-k8s
+  ports:
+    - protocol: "TCP"
+      port: 8083 # The port that the service is running on in the cluster
+      targetPort: 8083 # The port exposed by the service
+  type: NodePort # type of the service.
+  
+  ---
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: mysql-k8s-k8ssvc
+spec:
+  selector:
+    app: mysql-k8s
+  ports:
+    - protocol: "TCP"
+      port: 3306 # The port that the service is running on in the cluster
+      targetPort: 3306 # The port exposed by the service
+  type: NodePort # type of the service.
