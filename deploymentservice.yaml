@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: phpapache-k8s
-          image: php:apache # Image that will be used to containers in the cluster
+          image: swathi267/webapp-www:latest # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80 # The port that the container is running on in the cluster
@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - name: phpmyadmin-k8s
-          image: phpmyadmin/phpmyadmin # Image that will be used to containers in the cluster
+          image: swathi267/phpmyadmin:latest # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8083 # The port that the container is running on in the cluster
@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
         - name: mysql-k8s
-          image: mysql:latest # Image that will be used to containers in the cluster
+          image: swathi267/mysql:latest # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306 # The port that the container is running on in the cluster
