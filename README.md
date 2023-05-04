@@ -1,4 +1,5 @@
-**Application details:**
+Application Details
+=================================================
 
 This is a web application that enables users to manage a single entity called User, which is stored in a database. The web application has a user interface in the form of a web page.
 The webpage has three attributes: Username, Date of birth and Display name.
@@ -6,7 +7,8 @@ The source code for the project and other necessary files are mantained in Githu
 This web application is dockerized that includes the application and its dependencies.
 The whole CI/CD process is automated using jenkins pipeline.
 
-**Instructions to run and maintain the application:**
+Instructions to run and maintain application
+=================================================
 
           1. Create Amazon Linux EC2 instance using terraform. (Launch an ec2 instance using terraform instead of creating it manually in aws concole. Install terraform on your local machine and git clone using "**https://github.com/swathi994/terraform.git**". Execute aws configure and provide your aws credentials. Then execute terraform init, terraform plan and terraform apply commands)
           2. Login to EC2 instance using .pem file given at the time of creation.
@@ -51,8 +53,8 @@ The whole CI/CD process is automated using jenkins pipeline.
                  Screenshots of phpmyadmin page and records insertion from User interface: ![Screenshot from 2023-05-04 18-28-40](https://user-images.githubusercontent.com/33414899/236211741-15c2b2b9-f7d2-4b46-915a-e186aca8c145.png)  
                  ![Screenshot from 2023-05-04 18-29-42](https://user-images.githubusercontent.com/33414899/236211977-431e667f-513e-4a3f-b04c-b7544434af5f.png)
             
-           
-**How the application works when jenkins pipeline is executed:**
+How the application works when pipeline executes
+=================================================           
 
            1. Jenkins pipeline executes the jenkins file that contains cloning the git repo, execute tests, run docker-compose steps, push the docker images to docker hub and deploy the images to Kubernetes cluster.
            2. When docker-compose is run, it builds 3 containers for php apache, phpyadmin and mysqldb.
@@ -71,13 +73,12 @@ The whole CI/CD process is automated using jenkins pipeline.
                   **Screenshot of kubernetes nodes:** ![Screenshot from 2023-05-04 18-45-54](https://user-images.githubusercontent.com/33414899/236215774-5c8654ec-2040-41e3-bb83-4a76289150e9.png)
                   
                     Screenshot of kubernetes pods: ![Screenshot from 2023-05-04 18-47-09](https://user-images.githubusercontent.com/33414899/236216064-683e3901-c529-41fb-939b-93be44669142.png)
-
-           
-**Below are the steps to install Kuberntes cluster using kuebadm:**
-
+          
+Below are the steps to install Kuberntes cluster using kuebadm
+=================================================
 ================================================
 Building a Kubernetes 1.22 Cluster with kubeadm
-====================================================
+=================================================
                     **A. Install Packages**
                     1. Log into the Control Plane Node (Note: The following steps must be performed on all three nodes.).
                     2. Create configuration file for containerd:
