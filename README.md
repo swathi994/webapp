@@ -54,9 +54,9 @@ Instructions to run and maintain application
                  
            13. Run ec2ipaddress:8083 so that myphpadmin page gets opened. Login it with the root user and password mentioned in docker-compose.yml. Check if the database named 'assignment' and table 'user' exists in mysql database.
                  
-                 Screenshots of phpmyadmin page and records insertion from User interface: ![Screenshot from 2023-05-04 18-28-40](https://user-images.githubusercontent.com/33414899/236211741-15c2b2b9-f7d2-4b46-915a-e186aca8c145.png)  
-                 ![Screenshot from 2023-05-04 18-29-42](https://user-images.githubusercontent.com/33414899/236211977-431e667f-513e-4a3f-b04c-b7544434af5f.png)
-            
+                 Screenshots of phpmyadmin page and records insertion from User interface: 
+   ![Screenshot from 2023-05-04 18-28-40](https://user-images.githubusercontent.com/33414899/236236962-b3a1ad9d-c7bf-4ac9-ad77-df1ace745ca2.png)
+                
 How the application works when pipeline executes
 =================================================           
 
