@@ -29,9 +29,12 @@ pipeline {
                    sh 'docker login -u swathi267 -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push php:apache'
-                   sh 'docker push mysql:latest'
-                   sh 'docker push phpmyadmin/phpmyadmin'
+                   sh 'docker tag webapp-www swathi267/webapp-www'
+                   sh 'docker push swathi267/webapp-www'
+                   sh 'docker tag mysql swathi267/mysql'
+                   sh 'docker push swathi267/mysql'
+                   sh 'docker tag phpmyadmin swathi267/phpmyadmin'
+                   sh 'docker push swathi267/phpmyadmin'
                 }
             }
         }
