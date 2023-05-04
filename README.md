@@ -86,7 +86,8 @@ How to install Kubernetes on AWS
           5. Install kops on ubuntu instance
 
 
-                   curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+                   curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | 
+                   grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
                    chmod +x kops-linux-amd64
                    sudo mv kops-linux-amd64 /usr/local/bin/kops
 
@@ -94,9 +95,9 @@ How to install Kubernetes on AWS
 
 
           7. Attach IAM role to ubuntu instance
-
-          # Note: If you create IAM user with programmatic access then provide Access keys. Otherwise region information is enough
-aws configure
+ 
+                     # Note: If you create IAM user with programmatic access then provide Access keys. Otherwise region information is enough
+                      aws configure
 
 
           8. Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
@@ -120,7 +121,7 @@ aws configure
 
          12. Create kubernetes cluster definitions on S3 bucket
  
-                      kops create cluster --cloud=aws --zones=ap-south-1b --name=demo.k8s.user.net --dns-zone=user.net --dns private
+                                 kops create cluster --cloud=aws --zones=ap-south-1b --name=demo.k8s.user.net --dns-zone=user.net --dns private
 
          13. Create kubernetes cluser
 
