@@ -61,3 +61,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306 # The port that the container is running on in the cluster
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "example"
+
