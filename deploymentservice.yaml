@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: phpapache-k8s-deployment
+spec:
+  selector:
+    matchLabels:
+      app: phpapache-k8s
+  replicas: 2 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: phpapache-k8s
+    spec:
+      containers:
+        - name: phpapache-k8s
+          image: php:apache # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80 # The port that the container is running on in the cluster
+--- 
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: phpmyadmin-k8s-deployment
+spec:
+  selector:
+    matchLabels:
+      app: phpmyadmin-k8s
+  replicas: 2 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin-k8s
+    spec:
+      containers:
+        - name: phpmyadmin-k8s
+          image: phpmyadmin/phpmyadmin # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8083 # The port that the container is running on in the cluster
+            
+---
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: mysql-k8s-deployment
+spec:
+  selector:
+    matchLabels:
+      app: mysql-k8s
+  replicas: 2 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: mysql-k8s
+    spec:
+      containers:
+        - name: mysql-k8s
+          image: mysql:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3306 # The port that the container is running on in the cluster
