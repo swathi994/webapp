@@ -43,7 +43,7 @@ Instructions to run and maintain application
            11. Run http://ec2ipaddress so that webpage gets opened.
            
                 Screenshot of webpage created: 
-                ![Screenshot from 2023-05-04 18-15-27](https://user-images.githubusercontent.com/33414899/236210470-82df8ec0-3772-48da-8ad8-f52638f67a25.png)
+  ![Screenshot from 2023-05-04 18-15-27](https://user-images.githubusercontent.com/33414899/236236018-0017a920-13ea-4594-9872-2b0782bfe296.png)
                    
            12. Fill username,dob and displayname & click on Submit. It will then redirects to http://ec2ipaddress/connect.php and displays as "new record inserted successfully" if it is successful insertion.
            
